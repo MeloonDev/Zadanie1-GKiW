@@ -11,7 +11,9 @@ class BasicWorldDemo {
   }
 
   _Initialize() {
-    // this.initializeDemo_();
+    
+
+    // 1. Ustawienie sceny, światła
 
     this._threejs = new THREE.WebGLRenderer({
       antialias: true,
@@ -56,6 +58,8 @@ class BasicWorldDemo {
     light = new THREE.AmbientLight(0x101010);
     this._scene.add(light);
 
+    // 2. Implementacja ruchu kamery
+
     const controls = new OrbitControls(
       this._camera, this._threejs.domElement);
     controls.target.set(0, 0, 0);
@@ -69,16 +73,8 @@ class BasicWorldDemo {
 
     
 
-    // const loader = new THREE.CubeTextureLoader();
-    // const texture = loader.load([
-    //     './resources/posx.jpg',
-    //     './resources/negx.jpg',
-    //     './resources/posy.jpg',
-    //     './resources/negy.jpg',
-    //     './resources/posz.jpg',
-    //     './resources/negz.jpg',
-    // ]);
-    // this._scene.background = texture;
+    // 3. Ustawienie obiektów na mapie      
+
 
     const plane = new THREE.Mesh(
         new THREE.PlaneGeometry(100, 100, 10, 10),
@@ -198,7 +194,7 @@ class BasicWorldDemo {
   }
 
   
-      
+      //4. Render kodu
   
 
   _OnWindowResize() {
